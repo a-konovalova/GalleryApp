@@ -1,10 +1,10 @@
-package com.example.galtest
+package com.example.galleryapp
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProviders
-import com.example.gallery.ImageAdapter
+import com.example.galtest.ImageViewActivity
+import com.example.galtest.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,17 +13,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var viewModel: ViewModel = ViewModelProviders.of(this).get(ViewModel::class.java)
-
-        val imageAdapter: ImageAdapter = ImageAdapter(ViewModel().itemList,this )
-
-        gridView.adapter = imageAdapter
+        gridView.adapter = ImageAdapter(ViewModel().itemList,this )
         gridView.setOnItemClickListener{
-                imageAdapter, view, i, l ->
-            var data: Model = viewModel.getListImages()[i]
+                gridViewAdapter, _, position, _ ->
+            val imageAdapter: ImageAdapter = gridViewAdapter.adapter as ImageAdapter
+            val data: Model = imageAdapter.itemModel[position]
 
-
-            var intent = Intent(this, ImageViewActivity::class.java)
+            val intent = Intent(this, ImageViewActivity::class.java)
             intent.putExtra("data", data)
             startActivity(intent)
             }

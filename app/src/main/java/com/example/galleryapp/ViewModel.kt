@@ -1,4 +1,4 @@
-package com.example.galtest
+package com.example.galleryapp
 
 import androidx.lifecycle.ViewModel
 
@@ -8,6 +8,4 @@ class ViewModel : ViewModel() {
     init {
         this.itemList = ImageData.getImages()
     }
-
-    fun getListImages() = itemList
 }

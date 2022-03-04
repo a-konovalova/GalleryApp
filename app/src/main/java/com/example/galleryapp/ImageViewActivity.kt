@@ -2,6 +2,7 @@ package com.example.galtest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.galleryapp.Model
 import kotlinx.android.synthetic.main.activity_image_view.*
 
 class ImageViewActivity : AppCompatActivity() {

@@ -1,4 +1,6 @@
-package com.example.galtest
+package com.example.galleryapp
+
+import com.example.galtest.R
 
 object ImageData {
 
