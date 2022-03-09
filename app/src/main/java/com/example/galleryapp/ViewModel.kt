@@ -6,6 +6,6 @@ class ViewModel : ViewModel() {
     var itemList : ArrayList<Model> = ArrayList()
 
     init {
-        this.itemList = ImageData.getImages()
+        this.itemList = ItemRepository().getItemsList()
     }
 }

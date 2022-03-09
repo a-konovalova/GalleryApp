@@ -2,9 +2,9 @@ package com.example.galleryapp
 
 import com.example.galtest.R
 
-object ImageData {
+class ItemRepository: ItemDataRepository {
 
-    fun getImages() = arrayListOf(
+    private val itemsList = arrayListOf(
         Model("img1", R.drawable.img1),
         Model("img2", R.drawable.img2),
         Model("img3", R.drawable.img3),
@@ -19,4 +19,8 @@ object ImageData {
         Model("img12", R.drawable.img12),
         Model("img13", R.drawable.img13),
     )
+
+    override fun getItemsList(): ArrayList<Model> {
+        return itemsList
+    }
 }

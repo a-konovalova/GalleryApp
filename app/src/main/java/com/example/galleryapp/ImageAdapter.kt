@@ -19,8 +19,8 @@ class ImageAdapter (
         return itemModel.size
     }
 
-    override fun getItem(item: Int): Model {
-        return itemModel[item]
+    override fun getItem(itemId: Int): Model {
+        return itemModel[itemId]
     }
 
     override fun getItemId(itemId: Int): Long {
@@ -28,7 +28,6 @@ class ImageAdapter (
     }
 
     override fun getView(position: Int, view: View?, viewGroup: ViewGroup?): View {
-
         var localView = view;
         if(localView == null){
             localView = layoutInflater.inflate(R.layout.gallery_item, viewGroup, false)

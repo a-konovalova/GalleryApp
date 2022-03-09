@@ -3,9 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/alkonov/AndroidStudioProjects/GalleryApp/app/src/main/res/layout/activity_image_view.xml" value="0.1671875" />
+        <entry key="..\:/Users/alkonov/AndroidStudioProjects/GalleryApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1885" />
+        <entry key="..\:/Users/alkonov/AndroidStudioProjects/GalleryApp/app/src/main/res/drawable/ic_arrow_back.xml" value="0.2595" />
+        <entry key="..\:/Users/alkonov/AndroidStudioProjects/GalleryApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1885" />
+        <entry key="..\:/Users/alkonov/AndroidStudioProjects/GalleryApp/app/src/main/res/layout/activity_image_view.xml" value="0.1" />
         <entry key="..\:/Users/alkonov/AndroidStudioProjects/GalleryApp/app/src/main/res/layout/activity_main.xml" value="0.1671875" />
         <entry key="..\:/Users/alkonov/AndroidStudioProjects/GalleryApp/app/src/main/res/layout/gallery_item.xml" value="0.1671875" />
+        <entry key="..\:/Users/alkonov/AndroidStudioProjects/GalleryApp/app/src/main/res/layout/menu_activity_image_view.xml" value="0.2" />
+        <entry key="..\:/Users/alkonov/AndroidStudioProjects/GalleryApp/app/src/main/res/layout/toolbar.xml" value="0.2522255192878338" />
+        <entry key="..\:/Users/alkonov/AndroidStudioProjects/GalleryApp/app/src/main/res/menu/menu_activity_image_view.xml" value="0.18125" />
+        <entry key="..\:/Users/alkonov/AndroidStudioProjects/GalleryApp/app/src/main/res/menu/menu_example_image_view.xml" value="0.1" />
       </map>
     </option>
   </component>
