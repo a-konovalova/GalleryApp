@@ -2,4 +2,6 @@
     <string name="app_name">GalleryApp</string>
     <string name="back">Back</string>
     <string name="image">image</string>
+    <string name="item">1 item</string>
+    <string name="gallery">Gallery</string>
 </resources>

@@ -15,10 +15,12 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
+            android:cropToPadding="true"
             android:layout_centerHorizontal="true"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:src="@drawable/img1"
-            app:srcCompat="@drawable/img1" />
+            app:srcCompat="@drawable/img1"
+            android:contentDescription="@string/item" />
     </RelativeLayout>
 
 

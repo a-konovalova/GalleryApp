@@ -9,18 +9,18 @@ import android.widget.ImageView
 import com.example.galtest.R
 
 class ImageAdapter (
-    var itemModel: ArrayList<Model>,
+    var itemsModel: ArrayList<Model>,
     context: Context
     ) : BaseAdapter() {
 
     var layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     override fun getCount(): Int {
-        return itemModel.size
+        return itemsModel.size
     }
 
     override fun getItem(itemId: Int): Model {
-        return itemModel[itemId]
+        return itemsModel[itemId]
     }
 
     override fun getItemId(itemId: Int): Long {
@@ -34,7 +34,7 @@ class ImageAdapter (
         }
 
         val imageView = localView!!.findViewById<ImageView>(R.id.imageView)
-        imageView?.setImageResource(itemModel[position].image)
+        imageView?.setImageResource(itemsModel[position].image)
 
         return localView
     }
