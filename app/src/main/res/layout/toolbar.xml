@@ -31,8 +31,7 @@
             android:layout_marginBottom="10dp"
             android:textAlignment="center"
             android:textColor="#fff"
-            android:textSize="30sp"
-            android:text="@string/gallery"/>
+            android:textSize="30sp" />
 
     </RelativeLayout>
 

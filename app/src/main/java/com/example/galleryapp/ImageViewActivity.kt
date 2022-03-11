@@ -7,6 +7,7 @@ import android.view.ScaleGestureDetector
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
@@ -14,19 +15,16 @@ import com.example.galtest.R
 
 class ImageViewActivity : AppCompatActivity() {
 
-    private lateinit var viewPager: ViewPager
     private lateinit var scaleGestureDetector: ScaleGestureDetector
     private var factor = 1.0f
     private lateinit var viewImage: ImageView
-    private var position: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.activity_image_view)
 
-        val fullScreenView: View = layoutInflater.inflate(R.layout.full_screen_item, null)
-        viewImage = fullScreenView.findViewById(R.id.viewImage)
+        viewImage = findViewById(R.id.viewImage)
 
         scaleGestureDetector = ScaleGestureDetector(this, ScaleListener(viewImage, factor))
 
@@ -40,25 +38,19 @@ class ImageViewActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val itemsList = ViewModel().itemsList
+        val item = intent.getSerializableExtra("data") as Model
 
-        viewPager = findViewById<View>(R.id.slider) as ViewPager
+        viewImage.setImageResource(item.image)
 
-        if(savedInstanceState == null){
-            position = intent.getIntExtra("current", 0)
-        }
-
-        val sliderAdapter = SliderAdapter(this, itemsList)
-
-        viewPager.adapter = sliderAdapter
-        viewPager.setCurrentItem(position, true)
+        val textView: TextView = findViewById(R.id.img_name)
+        textView.text = item.name
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         return scaleGestureDetector.onTouchEvent(event)
     }
 
-    class ScaleListener(private val viewImage: ImageView, var factor: Float) : ScaleGestureDetector.SimpleOnScaleGestureListener() {
+    class ScaleListener(private val viewImage: ImageView, private var factor: Float) : ScaleGestureDetector.SimpleOnScaleGestureListener() {
         override fun onScale(scaleGestureDetector: ScaleGestureDetector): Boolean {
             factor *= scaleGestureDetector.scaleFactor
 

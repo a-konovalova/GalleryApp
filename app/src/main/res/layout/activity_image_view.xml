@@ -8,11 +8,16 @@
     tools:context="com.example.galleryapp.ImageViewActivity"
     android:theme="@style/AppTheme">
 
-    <!-- viewpager to show images -->
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/slider"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/viewImage"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:contentDescription="@string/image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/img1" />
 
     <include layout="@layout/toolbar" />
 

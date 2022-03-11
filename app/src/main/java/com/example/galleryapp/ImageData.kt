@@ -2,10 +2,9 @@ package com.example.galleryapp
 
 import com.example.galtest.R
 
-object ImageDataRepository {
-    val itemsList = arrayListOf<Model>()
+object ImageData {
 
-    val names = arrayListOf(
+    private val names = arrayListOf(
         "img1",
         "img2",
         "img3",
@@ -21,7 +20,7 @@ object ImageDataRepository {
         "img13",
     )
 
-    val images = arrayListOf(
+    private val images = arrayListOf(
         R.drawable.img1,
         R.drawable.img2,
         R.drawable.img3,
@@ -36,4 +35,12 @@ object ImageDataRepository {
         R.drawable.img12,
         R.drawable.img13,
     )
+
+    val itemsList = arrayListOf<Model>()
+
+    init{
+        for (i in 0 until images.size){
+            itemsList.add(Model(names[i], images[i]))
+        }
+    }
 }
