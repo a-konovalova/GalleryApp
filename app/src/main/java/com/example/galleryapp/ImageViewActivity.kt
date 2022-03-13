@@ -34,8 +34,7 @@ class ImageViewActivity : AppCompatActivity() {
         val buttonBackToMainActivity = findViewById<ImageButton>(R.id.action_back)
 
         buttonBackToMainActivity.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            finish()
         }
 
         val item = intent.getSerializableExtra("data") as Model
