@@ -1,8 +1,7 @@
 package com.example.galleryapp
 
-import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.view.View
@@ -26,9 +25,8 @@ class ImageViewActivity : AppCompatActivity() {
         supportActionBar?.hide()
         setContentView(R.layout.activity_image_view)
 
-        val inflater: LayoutInflater = this.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val item: View = inflater.inflate(R.layout.full_screen_item, null)
-        viewImage = item.findViewById(R.id.viewImage)
+        val fullScreenView: View = layoutInflater.inflate(R.layout.full_screen_item, null)
+        viewImage = fullScreenView.findViewById(R.id.viewImage)
 
         scaleGestureDetector = ScaleGestureDetector(this, ScaleListener(viewImage, factor))
 

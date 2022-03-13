@@ -32,8 +32,8 @@ class SliderAdapter(
         val imageView: ImageView = item.findViewById(R.id.viewImage)
         val textView: TextView = item.findViewById(R.id.img_name)
 
-        textView.text = itemsList[position].name
         Glide.with(context).load(itemsList[position].image).apply(RequestOptions().centerInside()).into(imageView)
+        textView.text = itemsList[position].name
 
         val viewPager: ViewPager = container as ViewPager
         viewPager.addView(item,0)
@@ -42,6 +42,8 @@ class SliderAdapter(
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+        //super.destroyItem(container, position, `object`)
+
         val viewPager: ViewPager = container as ViewPager
         val item: View = `object` as View
         viewPager.removeView(item)
