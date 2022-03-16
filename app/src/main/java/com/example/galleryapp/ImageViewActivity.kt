@@ -19,7 +19,6 @@ class ImageViewActivity : AppCompatActivity() {
 
         val itemsList = ViewModel().itemsList
         viewPager = findViewById<View>(R.id.slider) as ViewPager
-
         position = intent.getIntExtra("current", 0)
 
         val sliderAdapter = SliderAdapter(this, itemsList)
