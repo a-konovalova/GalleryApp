@@ -14,7 +14,6 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
 
-
 class ImageViewActivity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager
@@ -41,8 +40,8 @@ class ImageViewActivity : AppCompatActivity() {
         val buttonShare = findViewById<ImageButton>(R.id.action_share)
         buttonShare.setOnClickListener{
 
-            val bitmap = BitmapFactory.decodeResource(resources, itemsList[position].image)
-            var path = externalCacheDir.toString() + "/"+ itemsList[position].name + ".jpg"
+            val bitmap = BitmapFactory.decodeResource(resources, itemsList[viewPager.currentItem].image)
+            var path = externalCacheDir.toString() + "/"+ itemsList[viewPager.currentItem].name + ".jpg"
             val out: OutputStream?
             val file = File(path)
             try {
@@ -66,7 +65,6 @@ class ImageViewActivity : AppCompatActivity() {
             val shareIntent = Intent(Intent.ACTION_SEND)
             shareIntent.type = "image/jpeg"
 
-            shareIntent.putExtra(Intent.EXTRA_TEXT, "Sample Text")
             shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri)
             startActivity(shareIntent)
         }
