@@ -56,7 +56,7 @@ class ImageViewActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-            path = file.path
+
             val bmpUri = FileProvider.getUriForFile(
                 baseContext,
                 applicationContext

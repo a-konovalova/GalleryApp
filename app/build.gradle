@@ -5,13 +5,17 @@ plugins {
     id 'kotlin-android'
 }
 
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
     signingConfigs {
         release {
-        storeFile file('keystore.jks')
-            storePassword '111111'
-            keyPassword '111111'
-            keyAlias 'keyRelease'
+            storeFile file('keystore.jks')
+            storePassword keystoreProperties["MY_STORE_PASSWORD"]
+            keyPassword keystoreProperties["MY_KEY_PASSWORD"]
+            keyAlias keystoreProperties["MY_KEY_ALIAS"]
         }
     }
     compileSdk 32
@@ -67,4 +71,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.1'
 
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
+    implementation "io.github.cdimascio:dotenv-kotlin:6.2.2"
 }
