@@ -1,18 +1,12 @@
 package com.example.galleryapp
 
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.FileProvider
 import androidx.viewpager.widget.ViewPager
 import com.example.galtest.R
-import java.io.File
-import java.io.FileOutputStream
-import java.io.OutputStream
 
 class ImageViewActivity : AppCompatActivity() {
 
@@ -39,33 +33,9 @@ class ImageViewActivity : AppCompatActivity() {
 
         val buttonShare = findViewById<ImageButton>(R.id.action_share)
         buttonShare.setOnClickListener{
-
-            val bitmap = BitmapFactory.decodeResource(resources, itemsList[viewPager.currentItem].image)
-            var path = externalCacheDir.toString() + "/"+ itemsList[viewPager.currentItem].name + ".jpg"
-            val out: OutputStream?
-            val file = File(path)
-            try {
-                out = FileOutputStream(file)
-                bitmap.compress(
-                    Bitmap.CompressFormat.JPEG,
-                    100,
-                    out
-                )
-                out.flush()
-                out.close()
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-
-            val bmpUri = FileProvider.getUriForFile(
-                baseContext,
-                applicationContext
-                    .packageName + ".provider", file
-            )
             val shareIntent = Intent(Intent.ACTION_SEND)
             shareIntent.type = "image/jpeg"
-
-            shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri)
+            shareIntent.putExtra(Intent.EXTRA_STREAM, ItemDataRepoImpl().getItemUri(itemsList[viewPager.currentItem], applicationContext, baseContext, resources, externalCacheDir))
             startActivity(shareIntent)
         }
     }
