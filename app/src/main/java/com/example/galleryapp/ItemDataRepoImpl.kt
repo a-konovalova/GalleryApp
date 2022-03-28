@@ -5,6 +5,7 @@ import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
 import java.io.File
@@ -41,10 +42,14 @@ class ItemDataRepoImpl: ItemDataRepository {
             e.printStackTrace()
         }
 
-        val exif = ExifInterface(file)
-        exif.setLatLong(56.329776, 44.002344)
-        exif.saveAttributes()
-        path = file.path
+        if(item.name=="img14"){
+            val exif = ExifInterface(file)
+            exif.setLatLong(56.329776, 44.002344)
+            exif.saveAttributes()
+        } else{
+            val toast = Toast.makeText(applicationContext, "No location", Toast.LENGTH_LONG)
+            toast.show()
+        }
 
         return FileProvider.getUriForFile(
             baseContext,
