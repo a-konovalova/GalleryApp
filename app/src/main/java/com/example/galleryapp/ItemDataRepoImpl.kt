@@ -6,6 +6,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.core.content.FileProvider
+import androidx.exifinterface.media.ExifInterface
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
@@ -39,6 +40,10 @@ class ItemDataRepoImpl: ItemDataRepository {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+
+        val exif = ExifInterface(file)
+        exif.setLatLong(56.329776, 44.002344)
+        exif.saveAttributes()
         path = file.path
 
         return FileProvider.getUriForFile(
@@ -47,6 +52,4 @@ class ItemDataRepoImpl: ItemDataRepository {
                 .packageName + ".provider", file
         )
     }
-
-
 }

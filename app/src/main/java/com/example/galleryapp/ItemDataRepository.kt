@@ -12,6 +12,6 @@ interface ItemDataRepository {
         applicationContext: Context,
         baseContext: Context,
         resources: Resources,
-        externalCacheDir: File?
+        externalCacheDir: File?,
     ): Uri
 }

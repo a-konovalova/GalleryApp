@@ -76,17 +76,12 @@ class ImageViewActivity : AppCompatActivity() {
                     val lat = latLong[0]
                     val long = latLong[1]
                     val intent = Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://www.google.com/maps/search/?api=1&query=$lat%$long"))
+                        Uri.parse("https://www.google.com/maps/search/?api=1&query=$lat, $long"))
                     startActivity(intent)
                 }
-                Log.d("TAG",latLong[0].toString())
+                Log.d("TAG", latLong[0].toString())
             } catch (e: IOException) {
                 Log.d("TAG","Couldn't read exif info: " + e.localizedMessage)
-            } finally {
-                try {
-                    input.close()
-                } catch (ignored: IOException) {
-                }
             }
         }
     }
