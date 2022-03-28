@@ -5,6 +5,7 @@ import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
 import java.io.File
@@ -24,9 +25,8 @@ class ItemDataRepoImpl: ItemDataRepository {
         externalCacheDir: File?
     ): Uri {
         val bitmap = BitmapFactory.decodeResource(resources, item.image)
-        var path = externalCacheDir.toString() + "/" + item.name + ".jpg"
         val out: OutputStream?
-        val file = File(path)
+        val file = File(externalCacheDir, item.name + ".jpg")
         file.createNewFile()
         try {
             out = FileOutputStream(file)
@@ -41,10 +41,14 @@ class ItemDataRepoImpl: ItemDataRepository {
             e.printStackTrace()
         }
 
-        val exif = ExifInterface(file)
-        exif.setLatLong(56.329776, 44.002344)
-        exif.saveAttributes()
-        path = file.path
+        if(item.name=="img14"){
+            val exif = ExifInterface(file)
+            exif.setLatLong(56.329776, 44.002344)
+            exif.saveAttributes()
+        } else{
+            val toast = Toast.makeText(applicationContext, "No location", Toast.LENGTH_LONG)
+            toast.show()
+        }
 
         return FileProvider.getUriForFile(
             baseContext,
