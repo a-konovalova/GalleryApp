@@ -18,6 +18,7 @@ object ImageData {
         "img11",
         "img12",
         "img13",
+        "img14",
     )
 
     private val images = arrayListOf(
@@ -34,6 +35,7 @@ object ImageData {
         R.drawable.img11,
         R.drawable.img12,
         R.drawable.img13,
+        R.drawable.img14,
     )
 
     val itemsList = arrayListOf<Model>()

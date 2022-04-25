@@ -7,12 +7,11 @@ import java.io.File
 
 interface ItemDataRepository {
     fun getItemsList(): ArrayList<Model>
-
     fun getItemUri(
         item: Model,
         applicationContext: Context,
         baseContext: Context,
         resources: Resources,
-        externalCacheDir: File?
+        externalCacheDir: File?,
     ): Uri
 }

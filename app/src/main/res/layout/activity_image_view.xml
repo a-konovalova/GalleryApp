@@ -26,6 +26,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/img1" />
+
     <ImageButton
         android:id="@+id/action_back"
         android:layout_width="60dp"
@@ -42,12 +43,24 @@
         android:id="@+id/action_share"
         android:layout_width="60dp"
         android:layout_height="50dp"
-        android:layout_marginStart="340dp"
+        android:layout_marginStart="-70dp"
         android:layout_marginTop="10dp"
         android:background="#76BECF"
-        android:contentDescription="@string/back"
-        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/share"
+        app:layout_constraintStart_toEndOf="@id/view"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_share" />
+
+    <ImageButton
+        android:id="@+id/action_show_on_map"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="-120dp"
+        android:layout_marginTop="10dp"
+        android:background="#76BECF"
+        android:contentDescription="@string/openmap"
+        app:layout_constraintStart_toEndOf="@id/view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_location" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
