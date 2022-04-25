@@ -5,7 +5,19 @@ plugins {
     id 'kotlin-android'
 }
 
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
+    signingConfigs {
+        release {
+            storeFile file('keystore.jks')
+            storePassword keystoreProperties["MY_STORE_PASSWORD"]
+            keyPassword keystoreProperties["MY_KEY_PASSWORD"]
+            keyAlias keystoreProperties["MY_KEY_ALIAS"]
+        }
+    }
     compileSdk 32
 
     defaultConfig {
@@ -22,6 +34,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -56,4 +69,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.0-alpha03'
     implementation 'com.github.bumptech.glide:glide:4.13.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.1'
+
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
+    implementation "io.github.cdimascio:dotenv-kotlin:6.2.2"
 }
