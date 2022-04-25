@@ -75,8 +75,10 @@ class ImageViewActivity : AppCompatActivity() {
                 if (exifInterface.getLatLong(latLong)) {
                     val lat = latLong[0]
                     val long = latLong[1]
-                    val intent = Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://www.google.com/maps/search/?api=1&query=$lat, $long"))
+
+                    val intent = Intent(this, MapsActivity::class.java)
+                    intent.putExtra("lat", lat)
+                    intent.putExtra("long", long)
                     startActivity(intent)
                 }
                 Log.d("TAG", latLong[0].toString())
