@@ -12,8 +12,6 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.galtest.R
-import java.io.IOException
-import java.io.InputStream
 
 class ImageViewActivity : AppCompatActivity() {
 

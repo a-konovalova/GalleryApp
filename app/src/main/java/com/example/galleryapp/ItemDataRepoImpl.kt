@@ -13,6 +13,7 @@ import java.io.FileOutputStream
 import java.io.OutputStream
 
 class ItemDataRepoImpl: ItemDataRepository {
+
     override fun getItemsList(): ArrayList<Model> {
         return ImageData.itemsList
     }
@@ -28,6 +29,7 @@ class ItemDataRepoImpl: ItemDataRepository {
         val out: OutputStream?
         val file = File(externalCacheDir, item.name + ".jpg")
         file.createNewFile()
+
         try {
             out = FileOutputStream(file)
             bitmap.compress(
@@ -40,7 +42,7 @@ class ItemDataRepoImpl: ItemDataRepository {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-
+        
         if(item.name=="img14"){
             val exif = ExifInterface(file)
             exif.setLatLong(56.329776, 44.002344)
